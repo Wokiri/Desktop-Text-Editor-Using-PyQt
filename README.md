@@ -19,6 +19,8 @@ This project was implemented with python language, specifically by PyQt5 package
 - PyQt5-Qt5
 - PyQt5-sip
 
+All the libraries that played some role in the completion of the task are listed in the [requirements.txt](/requirements.txt) file.
+
 
 ## Screenshot of results
 
