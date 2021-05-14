@@ -1,0 +1,1 @@
+# Simple Text Editor built with PyQt5
