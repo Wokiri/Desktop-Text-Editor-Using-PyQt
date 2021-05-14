@@ -18,28 +18,62 @@ Libraries used:
 # This module provides access to some variables used by python interpreter.
 import sys
 
+
 from PyQt5 import QtWidgets
 # QtWidgets module contains various classes that are the primary elements for creating user interfaces in Qt.
 # They include PYQT5 QAction, QMainWindow, QApplication, QTextEdit, QFileDialog, QDialog
 
 
+from PyQt5 import QtGui, QtCore
+
 # Subclass QMainWindow to customise your application's main window
 class MainWindow(QtWidgets.QMainWindow):
     """Text Editor Mainwindow."""
 
-    filename = None
+    
 
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         
-        # initialize main window for the text editor, set seometry and title
+        # initialize main window for the text editor, set geometry and title
 
         self.setGeometry(100,100,800,600)
         self.setWindowTitle("New Frontier Editor")
 
+        self.appendActions()
+
+        self.filename = None
 
 
+    def _createEditorActions(self):
+        
+        # Various FILE options
+        self.new_fileAction = QtWidgets.QAction("&New",self)
 
+
+        self.open_fileAction = QtWidgets.QAction("&Open...",self)
+
+
+        self.save_fileAction = QtWidgets.QAction("&Save",self)
+
+
+        return {
+            'new_fileAction':self.new_fileAction,
+            'open_fileAction':self.open_fileAction,
+            'save_fileAction':self.save_fileAction,
+        }
+
+
+    
+    # Appending actions to the labeled widgets
+    def appendActions(self):
+        self.file_Toolbar = self.addToolBar("File")
+        self.file_Toolbar.addAction(self._createEditorActions()['new_fileAction'])
+        self.file_Toolbar.addAction(self._createEditorActions()['open_fileAction'])
+        self.file_Toolbar.addAction(self._createEditorActions()['save_fileAction'])
+
+
+    
 
 
 
