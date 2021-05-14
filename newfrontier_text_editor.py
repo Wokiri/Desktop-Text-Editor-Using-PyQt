@@ -162,9 +162,9 @@ class MainWindow(QtWidgets.QMainWindow):
           self.filename = QtWidgets.QFileDialog.getSaveFileName(self, 'Save File')[0]
 
         if self.filename:
-            # Save the contents of the text file
+            # Save the contents of the text file as plain text
             with open(self.filename,"wt") as file:
-                file.write(self.text.toHtml())
+                file.write(self.text.toPlainText())
 
             self.changesSaved = True
 
