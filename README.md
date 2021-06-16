@@ -1,5 +1,6 @@
 # Simple Text Editor built with PyQt5
 
+
 ## At the very minimum, the python module in this repository perfoms the following:
 
 1. Open existing file for editing
